@@ -6,18 +6,18 @@ const nombre = Joi.string() //valor
                   .alphanum()
                   .min(8)
                   .max(20);
-const cantidad = Joi.number() //valor
+const precio = Joi.number() //valor
                   .integer()
                   .min(2);
 
 const createPaqueteriaSchema = Joi.object({
   nombre: nombre.required(),//etiqueta < >Valor
-  cantidad: cantidad.required()
+  precio: precio.required()
 });
 //creación de los objetos de validación, los esquemas
 const updatePaqueteriaSchema = Joi.object({
   nombre: nombre,
-  cantidad: cantidad
+  precio: precio
 });
 
 const getPaqueteriaSchema = Joi.object({

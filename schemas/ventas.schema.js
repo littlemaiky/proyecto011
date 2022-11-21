@@ -6,18 +6,15 @@ const nombre = Joi.string() //valor
                   .alphanum()
                   .min(8)
                   .max(20);
-const cantidad = Joi.number() //valor
-                  .integer()
-                  .min(2);
 
 const createVentaSchema = Joi.object({
   nombre: nombre.required(),//etiqueta < >Valor
-  cantidad: cantidad.required()
+
 });
 //creación de los objetos de validación, los esquemas
 const updateVentaSchema = Joi.object({
   nombre: nombre,
-  cantidad: cantidad
+
 });
 
 const getVentaSchema = Joi.object({

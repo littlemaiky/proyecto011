@@ -29,7 +29,7 @@ function routerApi(app) {
 
   const routerv6 = express.Router();
   app.use('/api/v6', routerv6);
-  routerv6.use('/paqueterias', paqueteriasRouter);
+  routerv6.use('/paquetes', paqueteriasRouter);
 }
 
 module.exports = routerApi;

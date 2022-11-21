@@ -14,7 +14,6 @@ class ventaService {
       this.ventas.push({
         id: crypto.randomUUID(), //da el ID
         nombre: 'venta: ' + index, //genera los nombres
-        cantidad: 1 + Math.floor(Math.random()*190),
         estaBloqueado: Math.random() < 0.25 //valor boolean
       }); //genera DNI aleatorios entre 0 y 1
     }
