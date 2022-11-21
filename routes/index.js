@@ -1,50 +1,35 @@
 const express = require('express');
-const productsRouter = require('./producto.router');
-// //ROUTERS
-// const ventasRouter = require('./venta.router');
-// const paquetesRouter = require('./paquetes/paquete.router');
-// const guiasRouter = require('./guias/guia.router');
-// const encargadosRouter = require('./encargado/encargado.router');
-// const clientesRouter = require('./cliente/cliente.router');
+const productsRouter = require('./product.router');
+const clientesRouter = require('./clientes.router');
+const insumosRouter = require ('./insumos.router');
+const trabajadoresRouter = require('./trabajadores.router');
+const ventasRouter = require('./ventas.router');
+const paqueteriasRouter = require('./paqueterias.router');
 
 function routerApi(app) {
-  //producto clase
-  const routerV1 = express.Router();
-  app.use('/api/v1', routerV1);
-  routerV1.use('/producto',productsRouter);
+  const routerv1 = express.Router();
+  app.use('/api/v1', routerv1);
+  routerv1.use('/products', productsRouter);
 
-  // //TRABAJO
-  // ventas
-  // const routerV2 = express.Router();
-  // app.use('/api/v2', routerV2);
-  // routerV2.use('/venta',ventasRouter);
+  const routerv2 = express.Router();
+  app.use('/api/v2', routerv2);
+  routerv2.use('/clientes', clientesRouter);
 
-  // //Paquetes
-  // const routerV3 = express.Router();
-  // app.use('/api/v3', routerV3);
-  // routerV3.use('/paquete',paquetesRouter);
+  const routerv3 = express.Router();
+  app.use('/api/v3', routerv3);
+  routerv3.use('/insumos', insumosRouter);
 
-  // //Guias
-  // const routerV4 = express.Router();
-  // app.use('/api/v4', routerV4);
-  // routerV4.use('/guia',guiasRouter);
+  const routerv4 = express.Router();
+  app.use('/api/v4', routerv4);
+  routerv4.use('/trabajadores', trabajadoresRouter);
 
-  // //Encargado
-  // const routerV5 = express.Router();
-  // app.use('/api/v5', routerV5);
-  // routerV5.use('/encargado',encargadosRouter);
+  const routerv5 = express.Router();
+  app.use('/api/v5', routerv5);
+  routerv5.use('/ventas', ventasRouter);
 
-  // //Cliente
-  // const routerV6 = express.Router();
-  // app.use('/api/v6', routerV6);
-  // routerV6.use('/cliente',clientesRouter);
+  const routerv6 = express.Router();
+  app.use('/api/v6', routerv6);
+  routerv6.use('/paqueterias', paqueteriasRouter);
 }
 
-// function routerApi1(app1) {
-//   const routerV2 = express.Router();
-//   app1.use('/api/v2', routerV2);
-//   routerV2.use('/venta',ventasRouter);
-// }
-
 module.exports = routerApi;
-// module.exports = routerApi1;
