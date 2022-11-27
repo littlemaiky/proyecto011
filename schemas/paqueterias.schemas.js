@@ -1,7 +1,7 @@
 const Joi = require('joi');
 //creacion de los campos que vamos a validar
 const id = Joi.string()
-              .uuid();//campo id
+              .uuid();//campo id, tema de formato
 const nombre = Joi.string() //valor
                   .alphanum()
                   .min(8)

@@ -3,9 +3,8 @@ const Joi = require('joi');
 const id = Joi.string()
               .uuid();//campo id
 const nombre = Joi.string() //valor
-                  .alphanum()
                   .min(8)
-                  .max(20);
+                  .max(50);
 
 const createVentaSchema = Joi.object({
   nombre: nombre.required(),//etiqueta < >Valor
