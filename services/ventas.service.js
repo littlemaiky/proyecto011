@@ -1,8 +1,7 @@
 const { rejects } = require('assert');
 const crypto = require('crypto'); //para crear codigos UUID
 const boom = require('@hapi/boom');
-const sequelize = require('./../libs/sequelize');
-const setupModels = require('../db/models');
+const { models } = require('./../libs/sequelize');
 
 class ventaService {
 
@@ -15,12 +14,12 @@ class ventaService {
       id: crypto.randomUUID(), //creo productos y le coloco us ID
       ...data //desempaquetado
     };
-    const salida = await models.ventas.create(nuevoventa);
+    const salida = await models.venta.create(nuevoventa);
     return salida; // devuelvo el nuevo producto en el metodo create
   }
 
   async find() {
-    const salida = await models.ventas.findAll();
+    const salida = await models.venta.findAll();
     return salida;
     //
     //
@@ -33,9 +32,9 @@ class ventaService {
   }
 
   async findOne(id) {
-    const venta = await models.ventas.findByPk(id);
-    if(!venta){
-      throw boom.notFound('Venta no encontrada');
+    const venta = await models.venta.findByPk(id);
+    if (!venta) {
+      throw boom.notFound('venta no encontrada');
     }
     return venta;
     // const vent =  this.ventas.find(venta => { //seguarda en la variable insum
@@ -69,14 +68,14 @@ class ventaService {
     const venta = await this.findOne(id);
     await venta.destroy();
     return { id };
-  //   const index = this.ventas.findIndex(venta =>{
-  //     return venta.id === id;
-  //   });
-  //   if (index === -1) {
-  //     throw boom.notFound('Producto no encontrado');
-  //   }
-  //   this.ventas.splice(index, 1);
-  //   return { id };
+    // const index = this.ventas.findIndex(venta =>{
+    //   return venta.id === id;
+    // });
+    // if (index === -1) {
+    //   throw boom.notFound('Producto no encontrado');
+    // }
+    // this.ventas.splice(index, 1);
+    // return { id };
   }
 }
 

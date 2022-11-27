@@ -1,8 +1,8 @@
 const { Model, DataTypes, Sequelize } = require('sequelize');
 
-const VENT_TABLE = 'ventas';
+const PAQUET_TABLE = 'paqueterias';
 
-const VentaSchema = {
+const paqueteriasSchema = {
   id: {
     primaryKey: true,
     type: DataTypes.UUID
@@ -23,18 +23,18 @@ const VentaSchema = {
   }
 };
 
-class Venta extends Model {
+class paquetestia extends Model {
   static associate(){
 
   }
   static config(sequelize){
     return{
       sequelize,
-      tableName: VENT_TABLE,
-      modelName: 'venta',
+      tableName: PAQUET_TABLE,
+      modelName: 'paquetes',
       timestamps: false
     };
   }
 }
 
-module.exports = { VENT_TABLE, VentaSchema, Venta  };
+module.exports = { PAQUET_TABLE, paqueteriasSchema, paquetestia  };
