@@ -50,4 +50,6 @@ class paquetestia extends Model {
   }
 }
 
-module.exports = { PAQUET_TABLE, paqueteriasSchema, paquetestia  };
+
+module.exports = { PAQUET_TABLE, paqueteriasSchema, paquetestia };
+
