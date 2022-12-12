@@ -9,8 +9,11 @@ function setupModels(sequelize) {
   // otro tema
   paquetestia.init(paqueteriasSchema, paquetestia.config(sequelize));
   TipoPaquete.init(TipoPaqueteSchema, TipoPaquete.config(sequelize));
-  TipoPaquete.associate(sequelize.models);
+
+
   paquetestia.associate(sequelize.models);
+  TipoPaquete.associate(sequelize.models);
+
 }
 
 module.exports = setupModels;

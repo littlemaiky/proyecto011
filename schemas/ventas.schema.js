@@ -3,7 +3,7 @@ const Joi = require('joi');
 const id = Joi.string()
               .uuid();//campo id
 const nombre = Joi.string() //valor
-                  .min(8)
+
                   .max(50);
 
 const createVentaSchema = Joi.object({

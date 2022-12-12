@@ -26,7 +26,7 @@ class TipoPaqueteService {
   }
 
   async findOne(id) {
-    const Tipopaquet = await models.TipoPaquete.findByPk(id, {include: paquetestia});
+    const Tipopaquet = await models.TipoPaquete.findByPk(id,{include:paquetestia});
     if (!Tipopaquet) {
       throw boom.notFound('Paquete no encontrado');
     }
