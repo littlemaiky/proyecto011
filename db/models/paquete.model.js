@@ -1,4 +1,5 @@
 const { Model, DataTypes, Sequelize } = require('sequelize');
+const { TIPOPAQUET_TABLE } = require('./tipopaquete.model');
 
 const PAQUET_TABLE = 'paqueterias';
 
@@ -15,6 +16,17 @@ const paqueteriasSchema = {
     allowNull: false,
     type: DataTypes.INTEGER
   },
+  // tipoPaqueteId:{
+  //   field: 'tipoPaquete_id',
+  //   allowNull: true,
+  //   type: DataTypes.UUID,
+  //   references:{
+  //     model: TIPOPAQUET_TABLE,
+  //     key: 'id'
+  //   },
+  //   onUpdate: 'CASCADE',
+  //   onDelete: 'SET NULL'
+  // },
   createdAt: {
     allowNull: false,
     type: DataTypes.DATE,
@@ -24,9 +36,10 @@ const paqueteriasSchema = {
 };
 
 class paquetestia extends Model {
-  static associate(){
-
+  static associate(models){
+  this.belongsTo(models.TipoPaquete, {foreignKey: 'pertenecetipopaquete'});
   }
+
   static config(sequelize){
     return{
       sequelize,

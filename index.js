@@ -1,10 +1,12 @@
 const express = require('express');
 const routerApi = require('./routes');
+const cors = require('cors');
 const app = express();
 const port = 3000;
 
-const { logError, errorHandler, boomErrorHandler } = require('./middlewares/error.handler');
+const { logError, errorHandler, boomErrorHandler,ormErrorHandler } = require('./middlewares/error.handler');
 
+app.use(cors());
 app.use(express.json()); //perminte al Nodejs interpretar el contenido en formato JSON
 
 app.get('/', (req, res) => {
@@ -15,7 +17,9 @@ routerApi(app); //aca esta todo lo que se dentro del router y service
 //estos son los siguientes middleware
 app.use(logError);//imprime el error en consola
 app.use(boomErrorHandler);//si es un error de tipo boom lo detiene y muestra el RESPONS
+app.use(ormErrorHandler);
 app.use(errorHandler);//muestra la salida en formato JSON
+
 
 app.listen(port, () => {
   console.log("express activo: " + port);

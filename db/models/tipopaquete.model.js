@@ -1,8 +1,8 @@
 const { Model, DataTypes, Sequelize } = require('sequelize');
 
-const VENT_TABLE = 'venta';
+const TIPOPAQUET_TABLE = 'tipopaquete';
 
-const VentaSchema = {
+const TipoPaqueteSchema = {
   id: {
     primaryKey: true,
     type: DataTypes.UUID
@@ -19,18 +19,18 @@ const VentaSchema = {
   }
 };
 
-class Venta extends Model {
-  static associate(){
-
+class TipoPaquete extends Model {
+  static associate(models){
+  this.hasMany(models.paquetes,{foreignKey: 'pertenecetipopaquete'});
   }
   static config(sequelize){
     return{
       sequelize,
-      tableName: VENT_TABLE,
-      modelName: 'venta',
+      tableName: TIPOPAQUET_TABLE,
+      modelName: 'TipoPaquete',
       timestamps: false
     };
   }
 }
 
-module.exports = { VENT_TABLE, VentaSchema, Venta  };
+module.exports = { TIPOPAQUET_TABLE, TipoPaqueteSchema, TipoPaquete  };

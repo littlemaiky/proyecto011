@@ -5,19 +5,14 @@ const id = Joi.string()
 const nombre = Joi.string() //valor
                   .min(8)
                   .max(50);
-const precio = Joi.number() //valor
-                  .integer()
-                  .min(2);
 
 const createVentaSchema = Joi.object({
   nombre: nombre.required(),//etiqueta < >Valor
-  precio: precio.required()
 
 });
 //creación de los objetos de validación, los esquemas
 const updateVentaSchema = Joi.object({
   nombre: nombre,
-  precio: precio
 
 });
 
